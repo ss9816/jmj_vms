@@ -40,14 +40,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/testlogin").permitAll()
                 .antMatchers("/Error").permitAll()
-                .antMatchers("/index").hasAnyAuthority("ADMIN") //hasAnyRole
+                .antMatchers("/index").hasAnyAuthority("ADMIN")
+                //hasAnyRole
                 .anyRequest().authenticated();
 
         http.rememberMe()
                 .tokenRepository(persistentTokenRepository)
                 .tokenValiditySeconds(60)//Default 2 weeks
                 .userDetailsService(userDetailService)
-                 .rememberMeCookieName("remember")
+                .rememberMeCookieName("remember")
         ;//Cookie/Session
 
         //Firewall
