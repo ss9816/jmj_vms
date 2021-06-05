@@ -41,6 +41,7 @@ public class VisitorTypeTableController {
         model.put("something",service.list());
         model.put("pending",visitRequestTableService.countPendingRequest());
         modelAndView.addObject("model",model);
+        //testing
         return modelAndView;
     }
     @GetMapping("testing")
