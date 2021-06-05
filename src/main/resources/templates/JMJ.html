@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="assets/images/favicon.png" type="image/png">
+  <title>JMJ Hills</title>
+
+    <!--Begin  Page Level  CSS -->
+    <link href="/plugins/morris-chart/morris.css" rel="stylesheet">
+    <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"/>
+     <!--End  Page Level  CSS -->
+    <link href="/css/icons.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/mobiscroll.javascript.min.css">
+    <script src="/js/mobiscroll.javascript.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="js/html5shiv.min.js"></script>
+          <script src="js/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+<body class="sticky-header">
+
+
+    <!--Start left side Menu-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo-->
+        <div class="logo" style="margin-bottom:80px">
+            <a href="index.html"><img src="/images/ComLogo2.png" alt="">
+			<br/><h4 style="color:white; font-family:Poppins">JMJ Hills</h4></a>
+			
+        </div>
+
+        
+        <!--logo-->
+
+        <div class="left-side-inner">
+            <!--Sidebar nav-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li ><a href="index.html"><i class="mdi mdi-view-dashboard"></i> <span>Dashboard</span></a>
+                    
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="icon-note"></i> <span>Visitor Register</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="ui-buttons.html"> Normal Visitor</a></li>
+                        <li><a href="ui-panels.html"> Residential Usage</a></li>
+                        <li><a href="ui-sweet-alert.html">Delivery Service</a></li>
+                        <li><a href="ui-progressbar.html">Emergency</a></li>
+                        <li><a href="ui-alert-notification.html">Long-term Service</a></li>
+                    </ul>
+                </li>
+                
+                <li class="menu-list"><a href="#"><i class="icon-user"></i> <span>Staff List</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="table-static.html"> User List</a></li>
+                        <li><a href="table-responsive.html">Admin List</a></li>
+                        <li><a href="table-datatable.html">Guard List</a></li>
+						<li><a href="table-datatable.html">Resident List</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="calendar.html"><i class="icon-list"></i> <span>Visit Request List</span></a></li>
+                 <li><a href="widget.html"><i class="mdi mdi-clipboard-outline"></i> <span>Report</span></a></li>
+                <li><a href="widget.html"><i class="icon-settings"></i> <span>System Settings</span></a></li>
+               
+
+            </ul>
+            <!--End sidebar nav-->
+
+        </div>
+    </div>
+    <!--End left side menu-->
+    
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="font-family: Arial">
+                            <img src="/images/users/avatar-6.jpg" alt="" />
+                            AM-JMJS
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                          <li> <a href="#"> <i class="fa fa-user"></i> Profile </a> </li>
+                          <li> <a href="#"> <i class="fa fa-lock"></i> Logout </a> </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+              
+          <!--Start Page Title-->
+           <div class="page-title-box">
+                <h4 class="page-title">Dashboard </h4>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    
+                    <li class="active">
+                        Dashboard 
+                    </li>
+                </ol>
+                <div class="clearfix"></div>
+             </div>
+              <!--End Page Title-->          
+           
+                 <!--Start row-->
+                 <div class="row">
+                     <div class="container">
+                         <div class="analytics-box">
+                             
+                         </div>
+                     </div>
+                 </div>
+                 <!--End row-->
+           
+                  <!--Start row-->
+                  <div class="row">
+                   <!--Start info box-->
+                   <div class="col-md-4">
+                       <div class="info-box-main" >
+                          <div class="info-stats">
+                              <p style="font-family: Arial ">Pending Request</p>
+                              <span th:text="${model.get('pending')}"></span>
+                          </div>
+                          <div class="info-icon text-primary ">
+                              <i class="mdi mdi-account-check"></i>
+                          </div>
+                       </div>
+                   </div>
+                   <!--End info box-->
+                   
+                   <!--Start info box-->
+                   <div class="col-md-4">
+                       <div class="info-box-main">
+                          <div class="info-stats">
+                              <p style="font-family: Arial">Today Visitor</p>
+                              <span>2300</span>
+                          </div>
+                          <div class="info-icon text-info">
+                             <i class="mdi mdi-calendar-check"></i>	
+                          </div>
+                       </div>
+                   </div>
+                   <!--End info box-->
+                
+                   <!--Start info box-->
+                   <div class="col-md-4">
+                       <div class="info-box-main" >
+                          <div class="info-stats">
+                              <p style="font-family: Arial">Visitor Report</p>
+							  <span><br/></span>
+                          </div>
+                          <div class="info-icon text-warning">
+                              <i class="mdi mdi-clipboard-text"></i>	
+                          </div>
+                       </div>
+                   </div>
+					  
+					  
+                   <!--End info box-->
+                	
+                  </div>
+                  <!--End row-->
+                  
+                   <!--Start row-->
+                   <div class="row">
+                   
+                    <!-- Start inbox widget-->
+                      <div class="col-md-8">
+						  <div class="white-box">
+							  <h2 class="header-title"> Register For Residential Usage <hr style="margin-top:10px"></h2>
+							  <p style="margin-top:-10px; font-size:10px"><i>Fields marked with an asterisk (*) are required</i></p>
+                        <form>
+						  <div class="col-sm-6">
+							<label for="UserID" class="form-label" style="font-family: Open Sans">UserID *</label>
+							  <input type="UserID" class="form-control" >
+							</div>
+							
+							
+						  <div class="col-sm-12">
+							<label for="VisitorName" class="form-label">Visitor Name *</label>
+							<input type="VisitorName" class="form-control" >
+						  </div>
+							
+						  
+							<div class="col-sm-12">
+							<label for="VisitorTel" class="form-label">Visitor Tel *</label>
+							<input type="VisitorTel" class="form-control" >
+						  </div>
+							
+							<div class="col-sm-6">
+							 <label for="VehicleType">Vehicle Type *</label>
+								<select class="form-control" >
+								  <option>Car</option>
+								  <option>Motorcycle</option>
+								  <option>Van</option>
+								  <option>Lorry</option>
+								  <option>Heavy Vehicle</option>
+								</select>
+						  </div>
+							
+							<div class="col-sm-6">
+							<label for="PlateNum" class="form-label">Plate Number *</label>
+							<input type="PlateNum" class="form-control">
+						  </div>
+							
+							<div class="col-sm-6">
+							<label for="PeopleCount" class="form-label">People Count *</label>
+							<input type="PeopleCount" class="form-control">
+						  </div>
+							
+							<div class="col-sm-6">
+							<br/>
+							<input type="checkbox" class="form-check-input" id="exampleCheck1">
+    						<label class="form-check-label" for="exampleCheck1">Check me out</label>
+						  </div>
+							
+							<div class="col-sm-12 ">
+							<br/>
+						  <button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+						  </div>
+                   </div>
+                   <!--End chat widget-->
+    
+                 <!-- Start timeline-->
+                 <div class="col-md-4">
+                     <div class="white-box" style="height:460px">
+						 <h2 class="header-title"> Calender <hr style="margin-top:10px"></h2>
+                        <div id="demo-init-inline" ></div>
+                     </div>
+                 </div>
+                 <!-- End timeline-->  
+			</div>
+                     <div class="row">
+                   
+                    <!-- Start inbox widget-->
+                      <div class="col-md-4">
+                        <div class="white-box">
+                          <h2 class="header-title" style="height:10px">Admin List</h2>
+                            <div class="inbox-widget inbox-scroll-list">
+                            
+                                <div class="inbox-inner">
+									<br/>
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #99E2F2"><p class="round-name">RY</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Ruey Ying</p>
+                                           <p class="inbox-message">#A001</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #F3CA8C"><p class="round-name">SS</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Szesin</p>
+                                           <p class="inbox-message">#A002</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #B590E4"><p class="round-name">HB</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Hibiki</p>
+                                           <p class="inbox-message">#A003</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #E36CE5"><p class="round-name">NN</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Wudiha</p>
+                                           <p class="inbox-message">#A004</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #99E2F2"><p class="round-name">RY</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Ruey Ying</p>
+                                           <p class="inbox-message">#A005</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #E36CE5"><p class="round-name">NN</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Wudiha</p>
+                                           <p class="inbox-message">#A006</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #F3CA8C"><p class="round-name">SS</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Szesin</p>
+                                           <p class="inbox-message">#A007</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                                
+                                
+                            </div>    
+                        </div>
+                       </div>
+                      <!-- End inbox widget-->
+                       
+                   <!-- Start inbox widget-->
+                      <div class="col-md-4">
+                        <div class="white-box">
+                          <h2 class="header-title" style="height:10px">Guard List</h2>
+                            <div class="inbox-widget inbox-scroll-list">
+                            
+                                <div class="inbox-inner">
+									<br/>
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #F8EBA9"><p class="round-name">RD</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Random</p>
+                                           <p class="inbox-message">#G001</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #BF8A87"><p class="round-name">MS</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Monalisa</p>
+                                           <p class="inbox-message">#G002</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #E490B3"><p class="round-name">E1</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Example1</p>
+                                           <p class="inbox-message">#G003</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #6C8EE5"><p class="round-name">E2</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Example2</p>
+                                           <p class="inbox-message">#G004</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #99E2F2"><p class="round-name">RY</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Ruey Ying</p>
+                                           <p class="inbox-message">#G005</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #E36CE5"><p class="round-name">NN</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Wudiha</p>
+                                           <p class="inbox-message">#G006</p>
+                                           <p class="inbox-message">#G006</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-img">
+                                            <span class="dot" style="background-color: #F3CA8C"><p class="round-name">SS</p></span>
+                                        </div>
+                                        
+                                        <div class="inbox-item-info">
+                                           <p class="author">Szesin</p>
+                                           <p class="inbox-message">#G007</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                                
+                                
+                            </div>    
+                        </div>
+                       </div>
+                      <!-- End inbox widget-->
+    
+                 <!-- Start timeline-->
+                 <div class="col-md-4">
+                        <div class="white-box">
+                          <h2 class="header-title" style="height:10px">Upcoming Visitor</h2>
+							
+                            <div class="inbox-widget inbox-scroll-list">
+                            
+                                <div class="inbox-inner">
+									<br/>
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+
+                                <div class="inbox-inner">
+                                   <a href="#">
+                                    <div class="inbox-item">
+                                        <div class="inbox-item-info">
+											<div class="inbox-img">
+                                            <i class="mdi mdi-link-variant"></i>
+                                        </div>
+											<p class="author">#VR-2234</p>
+                                           <p class="inbox-message" style="margin-bottom:10px">Mr JM .  House No 0001</p>
+											
+											<div class="inbox-img">
+                                            <i class="mdi mdi-clock"></i>
+                                        </div>
+                                           <p class="inbox-message">Oct 29th, 2020 </p>
+                                           <p class="inbox-date">13:34 PM</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                                
+                                
+                            </div>    
+                        </div>
+                       </div>
+                 <!-- End timeline-->  
+                   </div>
+                   <!--End row-->
+			   
+			    </div>
+        <!-- End Wrapper-->
+
+
+        <!--Start  Footer -->
+        <footer class="footer-main">Copyright &copy; 2021. JMJ Hills All rights reserved.</footer>	
+         <!--End footer -->
+
+       </div>
+      <!--End main content -->
+    
+
+
+    <!--Begin core plugin -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/plugins/moment/moment.js"></script>
+    <script  src="/js/jquery.slimscroll.js "></script>
+    <script src="/js/jquery.nicescroll.js"></script>
+    <script src="/js/functions.js"></script>
+    <!-- End core plugin -->
+    
+    <!--Begin Page Level Plugin-->
+	<script src="/plugins/morris-chart/morris.js"></script>
+    <script src="/plugins/morris-chart/raphael-min.js"></script>
+    <script src="/plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="/pages/dashboard.js"></script>
+	
+	<script>
+
+    
+    mobiscroll.datepicker('#demo-init-inline', {
+        controls: ['calendar'],       // More info about controls: https://docs.mobiscroll.com/5-5-1/javascript/calendar#opt-controls
+        showRangeLabels: true,
+        display: 'inline'             // Specify display mode like: display: 'bottom' or omit setting to use default
+    });
+</script>
+    <!--End Page Level Plugin-->
+   
+
+</body>
+
+</html>
+

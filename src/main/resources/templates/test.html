@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TTT</title>
+</head>
+<body>
+
+<table>
+    <tr th:each="type:${list}">
+    <td th:text="${type.typeDesc}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
